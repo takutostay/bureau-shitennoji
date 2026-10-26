@@ -116,6 +116,7 @@ function render(){setLangUI();var u=UI[st.lang],d=DATA[st.lang];
  if(P&&P.pos==='top')h+=ph();
  if(d.btns){h+='<section class="card"><h2>'+u.btns+'</h2>'+d.btns.map(function(b){return '<div class="btn">'+chip(b[0],b[3])+'<div><div class="bname">'+b[1]+'</div><div class="bdesc">'+b[2]+'</div></div></div>'}).join('')+(d.note?'<div class="note">'+d.note+'</div>':'')+'</section>';}
  h+=d.sections.map(function(s){return '<section class="card"><h2>'+s[0]+'</h2><ol>'+s[1].map(function(x){return '<li><div>'+x+'</div></li>'}).join('')+'</ol></section>'}).join('');
+ if(d.grill){var g=d.grill;h+='<section class="card"><h2>'+g.title+'</h2><figure class="photo" style="margin:0 0 12px;padding:0"><img src="'+GRILL+'" alt="'+g.cap+'"><figcaption>'+g.cap+'</figcaption></figure><ol>'+g.steps.map(function(x){return '<li><div>'+x+'</div></li>'}).join('')+'</ol><div class="note"><b style="color:var(--warn)">'+u.warn+'</b>　'+g.warn+'</div></section>';}
  if(!d.btns&&d.note){h+='<section class="card"><div class="note" style="margin-top:0">'+d.note+'</div></section>';}
  if(d.marks){h+='<section class="card"><h2>'+d.marksTitle+'</h2><div class="mark ok"><span aria-label="'+u.ok+'">○</span><div>'+d.marks[0]+'</div></div><div class="mark ng"><span aria-label="'+u.ng+'">×</span><div>'+d.marks[1]+'</div></div></section>';}
  if(d.trouble){h+='<section class="card"><h2>'+u.trouble+'</h2>'+d.trouble.map(function(t){return '<div class="mark"><span style="border-color:var(--step);color:var(--step)">?</span><div>'+t+'</div></div>'}).join('')+'</section>';}
